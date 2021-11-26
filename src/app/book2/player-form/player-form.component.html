@@ -1,0 +1,39 @@
+
+
+
+<form [formGroup]="playerForm" (ngSubmit) = "onSubmit()" class>
+
+
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
+
+<div class="mb-3">
+    <label for="playerName" class="form-label"> Player Name</label>
+    <input id="playerName" type="text" formControlName="playerName" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="shirtNumber" class="form-label"> Shirt Number</label>
+    <input id="shirtNumber" type="number" formControlName="shirtNumber" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="teamName" class="form-label"> Team Name </label>
+    <input id="teamName" type="text" formControlName="teamName" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="price" class="form-label"> Price </label>
+    <input id="price" type="number" formControlName="price" class="form-control">
+</div>
+<div class="mb-3">
+    <label for="nationality" class="form-label"> Nationality </label>
+    <input id="nationality" type="text" formControlName="nationality" class="form-control">
+</div>
+
+<button type="submit" [disabled]= "!playerForm?.valid" class="btn btn-primary" >Submit</button>
+
+<div *ngIf="playerName?.invalid && playerName?.touched"  class="alert alert-danger" >
+    Player Name is required and must be more than 3 characters
+</div>
+<div *ngIf="shirtNumber?.invalid && shirtNumber?.touched"  class="alert alert-danger" >
+Shirt Number has to be positive</div>
+
+
+</form>

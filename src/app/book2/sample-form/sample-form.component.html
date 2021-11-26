@@ -1,0 +1,24 @@
+<p>sample-form works!</p>
+
+<form [formGroup]="playerForm" (ngSubmit) = "onSubmit()" >
+
+<div>
+    <label for="playerName"> Player Name</label>
+    <input id="playerName" type="text" formControlName="playerName">
+</div>
+<div>
+    <label for="shirtNumber"> Shirt Nummber </label>
+    <input id="shirtNumber" type="number" formControlName="shirtNumber">
+</div>
+
+<button type="submit" [disabled]= "!playerForm.valid" >Submit</button>
+
+<div *ngIf="playerName?.invalid && playerName?.touched"  class="alert alert-danger" >
+    Player Name is required and must be more than 3 characters
+</div>
+<div *ngIf="shirtNumber?.invalid && shirtNumber?.touched"  class="alert alert-danger" >
+    Shirt Number must be a positive integer
+</div>
+
+
+</form>
